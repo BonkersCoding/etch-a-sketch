@@ -1,6 +1,9 @@
-const container = document.querySelector(".container")
-const btn = document.querySelector("#btn")
-const pixel = document.querySelectorAll(".pixel")
+const container = document.querySelector(".container");
+const btn = document.querySelector("#gridSize");
+const pixel = document.querySelectorAll(".pixel");
+let mode = "default";
+const modes = document.querySelector(".modes")
+let pixelNumber = 20;
 
 function generatePixels(number) {
     for (let i = 0; i < number; i++) {
@@ -27,6 +30,7 @@ function changeGrid(number) {
     let rows = document.querySelectorAll(".row");
     rows.forEach((row) => {container.removeChild(row)});
     generatePixels(number);
+    pixelNumber = number;
 }
 
 btn.addEventListener('click', () => {
@@ -36,5 +40,11 @@ btn.addEventListener('click', () => {
 
 container.addEventListener('mouseover', (event) => {
     let targetPixel = event.target;
-    targetPixel.style.backgroundColor = "black";
+    targetPixel.classList.add("active");
+})
+
+modes.addEventListener('click', (event) => {
+    let option = event.target;
+    mode = option.id;
+    console.log(mode);
 })
