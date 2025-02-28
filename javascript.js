@@ -27,3 +27,8 @@ function changeGrid(number) {
     rows.forEach((row) => {container.removeChild(row)});
     generatePixels(number);
 }
+
+btn.addEventListener('click', () => {
+    let gridSize = +prompt("How many squares per row?", " ");
+    changeGrid(gridSize);
+})

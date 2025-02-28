@@ -5,8 +5,13 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+
 .header {
+    width: 500px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .row {
