@@ -1,3 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .row {
     display:flex;
     flex-direction: row;
@@ -5,5 +11,20 @@
 
 
 .container {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    width: 600px;
+    border: 1px solid black;
+}
+
+.pixel {
+    flex-grow: 1;
+    min-height: 1px;
+    min-width: 1px;
+    border: 1px solid black;
+}
+
+.row {
+    flex-grow: 1;
 }
