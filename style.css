@@ -30,7 +30,7 @@ button {
     border: 1px solid black;
 }
 
-.pixel {
+#pixel {
     flex-grow: 1;
     min-height: 1px;
     min-width: 1px;
@@ -41,6 +41,3 @@ button {
     flex-grow: 1;
 }
 
-.active {
-    background-color: black;
-}
