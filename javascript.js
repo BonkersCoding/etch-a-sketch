@@ -1,5 +1,6 @@
 const container = document.querySelector(".container")
 const btn = document.querySelector("#btn")
+const pixel = document.querySelectorAll(".pixel")
 
 function generatePixels(number) {
     for (let i = 0; i < number; i++) {
@@ -20,7 +21,7 @@ function generatePixels(number) {
     }
 }
 
-generatePixels(16);
+generatePixels(20);
 
 function changeGrid(number) {
     let rows = document.querySelectorAll(".row");
@@ -31,4 +32,9 @@ function changeGrid(number) {
 btn.addEventListener('click', () => {
     let gridSize = +prompt("How many squares per row?", " ");
     changeGrid(gridSize);
+});
+
+container.addEventListener('mouseover', (event) => {
+    let targetPixel = event.target;
+    targetPixel.style.backgroundColor = "black";
 })
