@@ -12,8 +12,9 @@ function generatePixels(number) {
         
         for (let j = 0; j < number; j++) {    
             const pixel = document.createElement("div");
-            pixel.style.height = "50px";
-            pixel.style.width = "50px";
+            pixel.style.minHeight = "5px";
+            pixel.style.minWidth = "5px";
+            pixel.style.border = "1px solid black"
             row.appendChild(pixel);
         }
         container.appendChild(row);
