@@ -2,6 +2,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header {
+    margin-bottom: 20px;
 }
 
 .row {
@@ -13,8 +18,8 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    height: 600px;
-    width: 600px;
+    height: 450px;
+    width: 450px;
     border: 1px solid black;
 }
 
