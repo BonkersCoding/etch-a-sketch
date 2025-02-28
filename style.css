@@ -5,7 +5,9 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
+button {
+    all: unset;
+}
 
 .header {
     width: 500px;
