@@ -1,6 +1,5 @@
 const container = document.querySelector(".container");
 const btn = document.querySelector("#gridSize");
-let pixels = document.querySelectorAll(".pixel");
 const modes = document.querySelector(".modes");
 const clear = document.querySelector("#clear");
 let mode = "default";
@@ -51,7 +50,11 @@ container.addEventListener('mouseover', (event) => {
                 targetPixel.style.backgroundColor = "#" + randomColor;
                 break;
             case "darken":
-                
+                targetPixel.style.backgroundColor = "black";
+                let opacity = +targetPixel.style.opacity;
+                opacity += 0.1;
+                targetPixel.style.opacity = opacity;
+
             default:
                 break;
         }
@@ -64,7 +67,11 @@ modes.addEventListener('click', (event) => {
     let option = event.target;
     mode = option.id;
     if (mode === "darken") {
-        pixels.forEach((pixel) => {pixel.style.backgroundColor = "black"});
+        let pixels = document.querySelectorAll("#pixel");
+        pixels.forEach((pixel) => {
+            pixel.style.backgroundColor = "black";
+            pixel.style.opacity = "0";
+            });
     }
     console.log(mode);
 })
