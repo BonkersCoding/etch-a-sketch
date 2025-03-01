@@ -11,33 +11,42 @@ button {
 
 .header {
     width: 500px;
-    margin-bottom: 20px;
+    margin: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .row {
     display:flex;
     flex-direction: row;
+    flex-grow: 1;
 }
 
 
 .container {
     display: flex;
     flex-direction: column;
-    height: 450px;
-    width: 450px;
+    height: 400px;
+    width: 400px;
     border: 1px solid black;
 }
 
+.modes {
+    margin-top: 30px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
 #pixel {
     flex-grow: 1;
     min-height: 1px;
     min-width: 1px;
-    box-shadow:1px 1px 0 0 black;
-}
-
-.row {
-    flex-grow: 1;
+    border: 1px solid black;
 }
 

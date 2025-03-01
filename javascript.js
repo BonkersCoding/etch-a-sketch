@@ -66,6 +66,7 @@ clear.addEventListener('click', () => {changeGrid(pixelNumber)});
 modes.addEventListener('click', (event) => {
     let option = event.target;
     mode = option.id;
+    changeGrid(pixelNumber);
     if (mode === "darken") {
         let pixels = document.querySelectorAll("#pixel");
         pixels.forEach((pixel) => {
