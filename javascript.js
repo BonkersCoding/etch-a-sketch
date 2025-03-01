@@ -4,6 +4,7 @@ const modes = document.querySelector(".modes");
 const clear = document.querySelector("#clear");
 let mode = "default";
 let pixelNumber = 20;
+let count = 0;
 
 function generatePixels(size) {
     for (let i = 0; i < size; i++) {
@@ -26,15 +27,11 @@ function changeGrid(size) {
     pixelNumber = size;
 }
 
-gridSize.addEventListener('click', () => {
-    let gridSize = +prompt("How many squares per row?", "Choose a number between 1 and 100");
-    if (gridSize != NaN && gridSize >0 && gridSize <= 100) {
-        changeGrid(gridSize);
-    } else {
-        alert("Use a positive number, smaller than 100");
-        }     
-    
-});
+function rainbowGenerator(step) {
+    let colors = ['e81416', 'ffa500', 'faeb36', '79c314', '487de7', '4b369d', '70369d', 'FF00FF'];
+    let j = step % 8;
+    return colors[j];
+}
 
 container.addEventListener('mouseover', (event) => {
     let targetPixel = event.target;
@@ -44,8 +41,8 @@ container.addEventListener('mouseover', (event) => {
                 targetPixel.style.backgroundColor = "black";
                 break;
             case "rainbow":
-                const randomColor = Math.floor(Math.random()*16777215).toString(16);
-                targetPixel.style.backgroundColor = "#" + randomColor;
+                targetPixel.style.backgroundColor = '#' + rainbowGenerator(count);
+                count++;
                 break;
             case "darken":
                 let values = getComputedStyle(targetPixel).getPropertyValue("background-color");
@@ -59,6 +56,16 @@ container.addEventListener('mouseover', (event) => {
                 break;
         }
 }
+})
+
+gridSize.addEventListener('click', () => {
+    let gridSize = +prompt("How many squares per row?", "Choose a number between 1 and 100");
+    if (gridSize != NaN && gridSize > 0 && gridSize <= 100) {
+        changeGrid(gridSize);
+    } else {
+        alert("Use a positive number, smaller than 100");
+        }     
+    
 })
 
 clear.addEventListener('click', () => {changeGrid(pixelNumber)});
