@@ -34,7 +34,7 @@ button {
     flex-grow: 1;
     min-height: 1px;
     min-width: 1px;
-    border: 1px solid black;
+    box-shadow:1px 1px 0 0 black;
 }
 
 .row {
