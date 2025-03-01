@@ -5,6 +5,7 @@ const clear = document.querySelector("#clear");
 let mode = "default";
 let pixelNumber = 20;
 let count = 0;
+const defaultBtn = document.querySelector("#default");
 
 function generatePixels(size) {
     for (let i = 0; i < size; i++) {
@@ -28,7 +29,7 @@ function changeGrid(size) {
 }
 
 function rainbowGenerator(step) {
-    let colors = ['e81416', 'ffa500', 'faeb36', '79c314', '487de7', '4b369d', '70369d', 'FF00FF'];
+    let colors = ['e81416', 'ffa500', 'FFFF00', '66ff00', '487de7', '4b369d', '70369d', 'FF00FF'];
     let j = step % 8;
     return colors[j];
 }
@@ -59,7 +60,7 @@ container.addEventListener('mouseover', (event) => {
 })
 
 gridSize.addEventListener('click', () => {
-    let gridSize = +prompt("How many squares per row?", "Choose a number between 1 and 100");
+    let gridSize = +prompt("How many squares per row?", " ");
     if (gridSize != NaN && gridSize > 0 && gridSize <= 100) {
         changeGrid(gridSize);
     } else {
@@ -71,10 +72,10 @@ gridSize.addEventListener('click', () => {
 clear.addEventListener('click', () => {changeGrid(pixelNumber)});
 
 modes.addEventListener('click', (event) => {
-    let modeOption = document.querySelectorAll(".mode")
+    let modeOptions = document.querySelectorAll(".mode");
+    modeOptions.forEach((mode) => {mode.style.borderColor = "white"})
     let option = event.target;
-    mode = option.id;    
-    modeOption.forEach((mode) => {mode.style.border = "1px solid white";})
+    mode = option.id;
     changeGrid(pixelNumber);
     if (mode === "darken") {
         let pixels = document.querySelectorAll("#pixel");
@@ -82,8 +83,10 @@ modes.addEventListener('click', (event) => {
             pixel.style.backgroundColor = 'rgb(0, 0, 0, 0)';
             });
     }
-    option.style.border = "1px solid black";
+    option.style.borderColor = "#" + rainbowGenerator(count);
+    count++;
     
 })
 
 generatePixels(20);
+defaultBtn.click();

@@ -1,4 +1,5 @@
 body {
+    max-height: 100wh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +8,8 @@ body {
 
 button {
     all: unset;
-    padding: 5px;
+    padding: 5px 13px;
+    border-radius: 15px;
 }
 
 .header {
@@ -15,10 +17,6 @@ button {
     display: flex;
     flex-direction: column;
     align-content: center;
-}
-
-#default {
-    border: 1px solid black;
 }
 
 h2 {
@@ -35,8 +33,8 @@ h2 {
 .container {
     display: flex;
     flex-direction: column;
-    height: 400px;
-    width: 400px;
+    min-height: 400px;
+    min-width: 400px;
     border: 1px solid black;
 }
 
@@ -45,18 +43,22 @@ h2 {
     justify-content: space-between;
 }
 
+.mode {
+    border: 2px solid white;
+}
+
 .options {
     margin-top: 5px;
     width: 400px;
     display: flex;
     justify-content: space-around;
-    font-size: 0.9em;
 }
 
 .option {
-    padding: 5px;
-    margin: 5px;
-    border: 1px dotted black;
+    padding: 4px 10px;
+    margin: 8px;
+    border: 1px dashed black;
+    font-size: 0.8em;
 }
 
 #pixel {
