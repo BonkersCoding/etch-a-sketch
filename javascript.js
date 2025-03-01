@@ -24,7 +24,6 @@ function generatePixels(number) {
     }
 }
 
-generatePixels(20);
 
 function changeGrid(number) {
     let rows = document.querySelectorAll(".row");
@@ -51,14 +50,12 @@ container.addEventListener('mouseover', (event) => {
                 break;
             case "darken":
                 let values = getComputedStyle(targetPixel).getPropertyValue("background-color");
-                let bracketIndex = values.indexOf(')');
-                let opacity = +values.slice(14, bracketIndex);
                 if (values != 'rgb(0, 0, 0)') {
+                    let bracketIndex = values.indexOf(')');
+                    let opacity = +values.slice(14, bracketIndex);
                     opacity += 0.1;
                     targetPixel.style.backgroundColor = `rgb(0, 0, 0, ${opacity})`;
                 }
-                console.log(values);
-                console.log(opacity);
             default:
                 break;
         }
@@ -77,5 +74,6 @@ modes.addEventListener('click', (event) => {
             pixel.style.backgroundColor = 'rgb(0, 0, 0, 0)';
             });
     }
-    console.log(mode);
 })
+
+generatePixels(20);

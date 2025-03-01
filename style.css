@@ -10,11 +10,10 @@ button {
 }
 
 .header {
-    width: 500px;
+    width: 400px;
     margin: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .row {
@@ -33,21 +32,21 @@ button {
 }
 
 .modes {
-    margin-top: 30px;
-    width: 500px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
 .options {
+    width: 400px;
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
 }
 #pixel {
     flex-grow: 1;
     min-height: 1px;
     min-width: 1px;
     border: 1px solid black;
-
 }
 
