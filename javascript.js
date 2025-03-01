@@ -1,40 +1,39 @@
 const container = document.querySelector(".container");
-const btn = document.querySelector("#gridSize");
+const gridSize = document.querySelector("#gridSize");
 const modes = document.querySelector(".modes");
 const clear = document.querySelector("#clear");
 let mode = "default";
 let pixelNumber = 20;
 
-function generatePixels(number) {
-    for (let i = 0; i < number; i++) {
+function generatePixels(size) {
+    for (let i = 0; i < size; i++) {
         let row = document.createElement("div");
         row.classList.add("row");
-    
-        if (number < 1 || number > 100) {
-            alert("Use a positive number, smaller than 100")
-            break;
-        }
-        
-        for (let j = 0; j < number; j++) {    
+        for (let j = 0; j < size; j++) {    
             const pixel = document.createElement("div");
             pixel.id = "pixel";
             row.appendChild(pixel);
         }
-        container.appendChild(row);
+        container.appendChild(row); 
     }
 }
 
 
-function changeGrid(number) {
+function changeGrid(size) {
     let rows = document.querySelectorAll(".row");
     rows.forEach((row) => {container.removeChild(row)});
-    generatePixels(number);
-    pixelNumber = number;
+    generatePixels(size);
+    pixelNumber = size;
 }
 
-btn.addEventListener('click', () => {
-    let gridSize = +prompt("How many squares per row?", " ");
-    changeGrid(gridSize);
+gridSize.addEventListener('click', () => {
+    let gridSize = +prompt("How many squares per row?", "Choose a number between 1 and 100");
+    if (gridSize != NaN && gridSize >0 && gridSize <= 100) {
+        changeGrid(gridSize);
+    } else {
+        alert("Use a positive number, smaller than 100");
+        }     
+    
 });
 
 container.addEventListener('mouseover', (event) => {
