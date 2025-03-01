@@ -65,8 +65,10 @@ container.addEventListener('mouseover', (event) => {
 clear.addEventListener('click', () => {changeGrid(pixelNumber)});
 
 modes.addEventListener('click', (event) => {
+    let modeOption = document.querySelectorAll(".mode")
     let option = event.target;
-    mode = option.id;
+    mode = option.id;    
+    modeOption.forEach((mode) => {mode.style.border = "1px solid white";})
     changeGrid(pixelNumber);
     if (mode === "darken") {
         let pixels = document.querySelectorAll("#pixel");
@@ -74,6 +76,8 @@ modes.addEventListener('click', (event) => {
             pixel.style.backgroundColor = 'rgb(0, 0, 0, 0)';
             });
     }
+    option.style.border = "1px solid black";
+    
 })
 
 generatePixels(20);

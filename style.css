@@ -7,13 +7,23 @@ body {
 
 button {
     all: unset;
+    padding: 5px;
 }
 
 .header {
     width: 400px;
-    margin: 20px;
+    margin-bottom: 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-content: center;
+}
+
+#default {
+    border: 1px solid black;
+}
+
+h2 {
+    align-self: center;
 }
 
 .row {
@@ -33,13 +43,12 @@ button {
 
 .modes {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
 }
 
 .options {
     width: 400px;
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
 }
