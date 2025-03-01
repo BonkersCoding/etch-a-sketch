@@ -50,11 +50,15 @@ container.addEventListener('mouseover', (event) => {
                 targetPixel.style.backgroundColor = "#" + randomColor;
                 break;
             case "darken":
-                targetPixel.style.backgroundColor = "black";
-                let opacity = +targetPixel.style.opacity;
-                opacity += 0.1;
-                targetPixel.style.opacity = opacity;
-
+                let values = getComputedStyle(targetPixel).getPropertyValue("background-color");
+                let bracketIndex = values.indexOf(')');
+                let opacity = +values.slice(14, bracketIndex);
+                if (values != 'rgb(0, 0, 0)') {
+                    opacity += 0.1;
+                    targetPixel.style.backgroundColor = `rgb(0, 0, 0, ${opacity})`;
+                }
+                console.log(values);
+                console.log(opacity);
             default:
                 break;
         }
@@ -70,8 +74,7 @@ modes.addEventListener('click', (event) => {
     if (mode === "darken") {
         let pixels = document.querySelectorAll("#pixel");
         pixels.forEach((pixel) => {
-            pixel.style.backgroundColor = "black";
-            pixel.style.opacity = "0";
+            pixel.style.backgroundColor = 'rgb(0, 0, 0, 0)';
             });
     }
     console.log(mode);
