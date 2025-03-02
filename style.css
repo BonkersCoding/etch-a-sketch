@@ -64,6 +64,10 @@ h2 {
     font-size: 0.8em;
 }
 
+.footer {
+    margin-bottom: 20px;
+}
+
 #pixel {
     flex-grow: 1;
     min-height: 1px;
